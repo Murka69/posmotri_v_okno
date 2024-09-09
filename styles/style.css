@@ -54,7 +54,7 @@ ol {
 }
 
 .content__list {
-  max-height: 298px;
+  block-size: 298px;
   overflow-y: auto;
   position: relative;
 }
@@ -87,17 +87,21 @@ ol {
 
 .content__video-card {
   display: flex;
-  justify-content: flex-start;
-  padding: 2px;
+  justify-content: space-between;
+  align-items: start;
 }
 
 .content__video-card-thumbnail {
-  width: 194px;
-  height: 103px;
+  inline-size:194px;
+  block-size: 103px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  
 }
 
 .content__video-card-description-container {
-  width: 100%;
+  width:200px;
+  min-height: 101px;
 }
 
 .search-form__fieldset-title {
@@ -127,20 +131,28 @@ ol {
 }
 
 .content__video-card-title {
+  width: 200px;
+  min-height: 30px;
   font-family:"Oswald",sans-serif;
   font-size: 30px;
+  font-weight: 700;
   text-transform: uppercase;
-  line-height: 100%;
+  line-height: 30px;
+  padding-top: 2px;
+  padding-left: 2px;
 }
 
 .content__video-card-description{
+  width: 200px;
+  min-height: 65px;
   font-family:"Fira Sans Condensed", sans-serif;
   font-weight: 400;
   font-size: 18px;
-  line-height: 90%;
+  line-height: 16.2px;
+  padding: 6px 0px 4px 2px;
 }
 
-.content__video-card-title + .content__video-card-description {
+.content__video-card-title .content__video-card-description {
   width: 200px;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -163,12 +175,19 @@ fieldset{
 
 .search-form__label{
   display: flex;
+  align-items: center;
   gap:5px;
   cursor: pointer;
 }
 
+.search-form__label:hover .search-form__label-text {
+  text-decoration: underline;
+}
+
 .search-form__checkbox-list{
   display:flex;
+  justify-content: center;
+  align-items: center;
   gap:15px;
 }
 
@@ -184,6 +203,10 @@ fieldset{
   color:rgba(255, 255, 255, 0.7);
   cursor: pointer;
   appearance: none;
+}
+
+.search-form__textfield:focus-visible{
+  outline: none;
 }
 
 .search-form__pseudo-checkbox{
@@ -207,13 +230,13 @@ fieldset{
 button{
   background: transparent;
   color:#fff;
-  border: 1px solid #fff;
-  font-family:"Oswald", sans-serif ;
+  border: 1px solid currentColor;
+  font-family:"Fira Sans Condensed", sans-serif;
   font-weight: 700;
   font-size: 18px;
   text-align: center;
   cursor: pointer;
-  max-height: 34px;
+  padding:6px 0;
   
 }
 
@@ -237,6 +260,7 @@ button{
 
 .button:focus-visible {
   outline: 1px solid #fff;
+  outline-offset: 1px;
 }
 
 .button:active {
@@ -259,10 +283,10 @@ button{
   background: #545050;
 }
 
-.content__card-link:hover .content__video-card:hover{
+.content__video-card:hover{
   text-decoration: underline;
 }
 
-.content__card-link_current:active{
+.content__card-link_current{
   background: #545050;
 }
